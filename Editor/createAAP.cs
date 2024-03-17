@@ -14,7 +14,7 @@ public class AAP : MonoBehaviour
         for (int i = 0; i < args.Length; i += 2)
         {
             string paramName = (string)args[i];
-            float val = (float)args[i + 1];
+            float val = Convert.ToSingle(args[i + 1]);
             EditorCurveBinding curveBinding = EditorCurveBinding.FloatCurve("Animator", typeof(Animator), $"FloatParameter.{paramName}");
             AnimationCurve curve = new AnimationCurve(new Keyframe(0, val));
             AnimationUtility.SetEditorCurve(animationClip, curveBinding, curve);
